@@ -102,7 +102,7 @@ public class JobData {
             for (String entry : row.values()) {
 
                 if (entry.toUpperCase().contains(value.toUpperCase())) {
-                    if (jobs.contains(value.toUpperCase())) {
+                    if (!jobs.contains(value.toUpperCase())) {
                         jobs.add(row);
                         break;
                     }

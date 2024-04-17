@@ -131,15 +131,19 @@ public class TechJobs {
 //               System.out.println();
 //           }
 
-         for (HashMap<String, String> entry : someJobs){
-             System.out.println("\n*****");
-             for ( String key : entry.keySet()){
-                 String value = entry.get(key);
-                 System.out.println(key +": "+value);
-             }
-             System.out.println("*****");
-             //System.out.println();
-         }
-
+        if ( someJobs.isEmpty() || someJobs == null){
+            System.out.print("No Results");
+        }
+        else {
+            for (HashMap<String, String> entry : someJobs) {
+                System.out.println("\n*****");
+                for (String key : entry.keySet()) {
+                    String value = entry.get(key);
+                    System.out.println(key + ": " + value);
+                }
+                System.out.println("*****");
+                //System.out.println();
+            }
+        }
           }
 }

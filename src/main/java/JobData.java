@@ -20,6 +20,8 @@ public class JobData {
 
     private static ArrayList<HashMap<String, String>> allJobs;
 
+
+
     /**
      * Fetch list of all values from loaded data,
      * without duplicates, for a given column.
@@ -37,11 +39,13 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
             String aValue = row.get(field);
 
-            if (!values.contains(aValue)) {
+            if (values.contains(aValue)) {
+                System.out.println("Already exists");
+            }
+            else {
                 values.add(aValue);
             }
         }
-        //System.out.println("Values : "+values);
         return values;
     }
 
@@ -50,7 +54,10 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        ArrayList<HashMap<String, String>> allJobsDuplicate = new ArrayList<>();
+        allJobsDuplicate.addAll(allJobs);
+
+        return allJobsDuplicate;
     }
 
     /**
@@ -102,9 +109,11 @@ public class JobData {
             for (String entry : row.values()) {
 
                 if (entry.toUpperCase().contains(value.toUpperCase())) {
+
                     if (!jobs.contains(value.toUpperCase())) {
+
                         jobs.add(row);
-                        break;
+                      //  break;
                     }
                 }
             }

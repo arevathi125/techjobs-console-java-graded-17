@@ -41,6 +41,7 @@ public class TechJobs {
 
                     ArrayList<String> results = JobData.findAll(columnChoice);
 
+                    Collections.sort(results);
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
                     // Print list of skills, employers, etc
@@ -125,24 +126,23 @@ public class TechJobs {
 //               while (it.hasNext()) {
 //                   Map.Entry pairs = (Map.Entry) it.next();
 //                   System.out.println( pairs.getKey() + ":" + pairs.getValue() );
-//                   //it.remove(); // avoids a ConcurrentModificationException
-//               }
+//                    }
 //               System.out.println("*****");
 //               System.out.println();
 //           }
 
         if ( someJobs.isEmpty() || someJobs == null){
             System.out.print("No Results");
-        }
+            }
         else {
             for (HashMap<String, String> entry : someJobs) {
-                System.out.println("\n*****");
+                System.out.println();
+                System.out.println("*****");
                 for (String key : entry.keySet()) {
                     String value = entry.get(key);
                     System.out.println(key + ": " + value);
                 }
                 System.out.println("*****");
-                //System.out.println();
             }
         }
           }

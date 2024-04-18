@@ -20,8 +20,6 @@ public class JobData {
 
     private static ArrayList<HashMap<String, String>> allJobs;
 
-
-
     /**
      * Fetch list of all values from loaded data,
      * without duplicates, for a given column.
@@ -54,8 +52,12 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> allJobsDuplicate = new ArrayList<>();
-        allJobsDuplicate.addAll(allJobs);
+//        ArrayList<HashMap<String, String>> allJobsDuplicate = new ArrayList<>();
+//        allJobsDuplicate.addAll(allJobs);
+
+        //  ArrayList allJobsDuplicate = (ArrayList)allJobs.clone();
+
+        ArrayList<HashMap<String, String>> allJobsDuplicate = allJobs;
 
         return allJobsDuplicate;
     }
